@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 80%;
+    max-width: 500px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="file"],
+input[type="text"],
+input[type="submit"],
+button {
+    margin: 10px 0;
+    padding: 10px;
+}
+
+button {
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+#drop-area {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+#drop-area p {
+    margin: 0;
+    font-size: 16px;
+}
+
+#file-input {
+    display: none;
+}
+
+
+
+
+#drop-area {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+#file-info {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#file-info img {
+    margin-right: 10px;
+}
+
+#file-details {
+    display: flex;
+    flex-direction: column;
+}
+
+#file-name {
+    font-weight: bold;
+}
+
+#file-meta {
+    font-size: 0.8em;
+    color: #666;
+}
+
+#file-type {
+    font-size: 0.8em;
+    color: #666;
+}
+
+#file-icon {
+    width: 10%;
+}
