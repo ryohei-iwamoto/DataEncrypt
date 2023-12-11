@@ -1,0 +1,29 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #333;
+    color: white;
+    padding: 12px 0;
+}
+
+.navbar-brand {
+    float: left;
+    margin-left: 0.5vw;
+}
+
+.navbar-nav {
+    float: right;
+    margin-right: 0.5vw;
+}
+
+.nav-item {
+    display: inline-block;
+    margin-left: 1vw;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+}

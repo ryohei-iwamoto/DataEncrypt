@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "layout.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>ファイルの暗号化・複合化サービス</title>
-    <link rel="stylesheet" href="../static/css/style.css">
-    <!-- <script src="{{ url_for('static', filename='script.js') }}"></script> -->
-</head>
+{% block main %}
 
 <body>
     <div class="container">
@@ -21,13 +15,6 @@
         </ul>
         {% endif %}
         {% endwith %}
-        <!-- <form action="/upload" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" required>
-            <input type="text" name="key" id="key" placeholder="キーを入力または生成" required>
-            <button type="button" onclick="generateRandomKey()">キー生成</button>
-            <input type="submit" value="暗号化・複合化">
-        </form>        
-    </div> -->
         <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
             <div id="drop-area">
                 <p>ファイルをここにドラッグ＆ドロップするか、クリックして選択してください</p>
@@ -48,18 +35,4 @@
     </div>
     <script src="../static/js/script.js"></script>
 </body>
-
-</html>
-
-<!-- <div class="container">
-    <h1>ファイルの暗号化・複合化</h1>
-    <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
-        <div id="drop-area">
-            <p>ファイルをここにドラッグ＆ドロップするか、クリックして選択してください</p>
-            <input type="file" id="file-input" name="file" hidden>
-        </div>
-        <input type="text" name="key" id="key" placeholder="キーを入力または生成" required>
-        <button type="button" onclick="generateRandomKey()">キー生成</button>
-        <input type="submit" value="暗号化">
-    </form>
-</div> -->
+{% endblock %}
