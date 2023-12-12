@@ -12,6 +12,10 @@ function fileSelected() {
     let file = fileInput.files[0];
 
     if (file) {
+        if (file.size > 200 * 1024 * 1024) {
+            alert('ファイルが大きすぎます。200MB以下のファイルを選択してください。');
+            return; // これ以上の処理を中断
+        }
         // ファイル情報の表示
         document.getElementById('file-name').textContent = file.name;
         // document.getElementById('file-meta').textContent = `${(file.size / 1024).toFixed(2)} KB - ${file.type}`;

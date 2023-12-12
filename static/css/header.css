@@ -27,3 +27,17 @@
     color: white;
     text-decoration: none;
 }
+
+.hash_box_icon {
+    width: 60px;
+}
+
+.app_name {
+    font-size: 23px;
+    text-decoration: none;
+    font-weight: bold;
+    /* text-decoration-line: none;  */
+    display: flex;
+    align-items: center;
+    color: white;
+}

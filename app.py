@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, send_file, redirect, url_for, flash, session
+from flask import Flask, render_template, request, send_file, redirect, url_for, flash, session, jsonify
 from common.models import curd
-from controllers import manage_password
+from controllers import manage_login_password
 import os
 import random
 import string
@@ -65,7 +65,7 @@ def login():
         username = request.form.get("username")
         password = request.form.get("password")
 
-        hashed_password = manage_password.password_hash(password)
+        hashed_password = manage_login_password.password_hash(password)
 
         if curd.check_login_attempts(username):
             return "複数回のログイン試行が検出されました。しばらくお待ちください。", 403
@@ -106,7 +106,7 @@ def register():
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
 
-        password_hash = manage_password.password_hash(password)
+        password_hash = manage_login_password.password_hash(password)
 
         if not username:
             return apology("ユーザーネームを入力してください", 400)
@@ -124,9 +124,26 @@ def register():
         return redirect("/login")
     else:
         return render_template("register.html")
+    
 
 
-# 他のルートと機能をここに追加
+@app.route('/manage_password')
+def manage_password():
+    user_id = session.get('user_id')
+    if not user_id:
+        return redirect('/login')
+
+    passwords = curd.get_manage_passwords(user_id)
+    return render_template('manage_password.html', passwords=passwords)
+
+
+@app.route('/delete_password/<int:password_id>', methods=['POST'])
+def delete_password_route(password_id):
+    curd.delete_manage_password(password_id)
+    return jsonify({'status': 'success'})
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>ファイルの暗号化・複合化サービス</title>
-    <link rel="icon" type="image/png" href="../static/img/favcon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../static/img/hash_box_icon.png" sizes="32x32">
     <link rel="stylesheet" href="../static/css/header.css">
     <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/table.css">
     <link rel="stylesheet" href="../static/css/style.css">
 </head>
     <body class="body">
         <nav class="navbar navbar-expand-md navbar-dark bg-danger">
             {% if session["user_id"] %}
-            <a class="navbar-brand" href="/"><img src="static/img/map_logo.png"></a>
+            <a class="navbar-brand app_name" href="/"><img src="../static/img/hash_box_icon.png" class="hash_box_icon">HashBOX</a>
             <div class="navbar-collapse collapse justify-content-stretch" id="navbar">
                 <ul class="navbar-nav me-auto mt-2">
                 </ul>
                 <ul class="navbar-nav ms-auto mt-2">
-                    <li class="nav-item"><a class="nav-link" href="/mypage">パスワード管理</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/manage_password">パスワード管理</a></li>
                     <li class="nav-item"><a class="nav-link" href="/logout">ログアウト</a></li>
                 </ul>
             </div>
             {% else %}
-            <a class="navbar-brand" href="/"><img src="static/img/map_logo.png"></a>
+            <a class="navbar-brand app_name" href="/"><img src="../static/img/hash_box_icon.png" class="hash_box_icon">HashBOX</a>
             <div class="navbar-collapse collapse justify-content-stretch" id="navbar">
                 <ul class="navbar-nav me-auto mt-2">
                 </ul>

@@ -64,4 +64,23 @@ def check_login_attempts(username):
     return attempts >= MAX_ATTEMPTS
 
 
+def get_manage_passwords(user_id):
+    # ユーザーIDに基づいてパスワード情報を取得
+    con = sqlite3.connect(DATABASE_PATH)
+    cur = con.cursor()
+    cur.execute("SELECT id, file_name, password, memo FROM passwords WHERE member_id = ?", (user_id,))
+    passwords = cur.fetchall()
+    con.close()
+    return passwords
+
+
+def delete_manage_password(password_id):
+    # パスワード情報の削除
+    con = sqlite3.connect(DATABASE_PATH)
+    cur = con.cursor()
+    cur.execute("DELETE FROM passwords WHERE id = ?", (password_id,))
+    con.commit()
+    con.close()
+
+
 initialize_database()
