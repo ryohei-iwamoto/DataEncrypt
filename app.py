@@ -8,8 +8,11 @@ import datetime
 from controllers import encode
 import io
 from helpers import apology, login_required
+from livereload import Server
+
 
 app = Flask(__name__)
+
 
 with open('secret_key.txt') as f:
     app.secret_key = f.read().strip()
@@ -145,5 +148,13 @@ def delete_password_route(password_id):
 
 
 
+# if __name__ == '__main__':
+#     app.run(debug=True)
+
+
+
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 if __name__ == '__main__':
-    app.run(debug=True)
+    server = Server(app.wsgi_app)
+    server.watch('templates/*.html')
+    server.serve(port=5000, host='localhost')

@@ -1,17 +1,15 @@
 /* style.css */
-.container {
-    width: 100%;
-    margin: 0;
-    padding: 0;
+.table_container {
+    width: 90vw;
+    position: absolute;
+    top: 100px;
+    left: 5vw;
 }
 
 
 table {
     width: 100%;
     border-collapse: collapse;
-    /* display: flex;
-    justify-content: flex-start;
-    align-items: flex-start; */
 }
 
 table, th, td {
@@ -40,3 +38,19 @@ button {
     cursor: pointer;
 }
 
+
+.table-index {
+    width: 3vw;
+}
+
+.file-name{
+    width: 20vw;
+}
+
+.key{
+    width: 15vw;
+}
+
+.delete{
+    width: 3vw;
+}
