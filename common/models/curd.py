@@ -68,9 +68,16 @@ def get_manage_passwords(user_id):
     # ユーザーIDに基づいてパスワード情報を取得
     con = sqlite3.connect(DATABASE_PATH)
     cur = con.cursor()
-    cur.execute("SELECT id, file_name, password, memo FROM passwords WHERE member_id = ?", (user_id,))
-    passwords = cur.fetchall()
+    cur.execute("SELECT id, file_name, password, created_at, memo FROM passwords WHERE member_id = ?", (user_id,))
+    passwords_raw = cur.fetchall()
     con.close()
+
+    passwords = []
+    for password in passwords_raw:
+        id, file_name, password, created_at, memo = password
+        date_only = created_at.split(' ')[0]  # 半角スペースで分割し、最初の要素を取得
+        passwords.append((id, file_name, password, date_only, memo))
+
     return passwords
 
 
@@ -81,6 +88,23 @@ def delete_manage_password(password_id):
     cur.execute("DELETE FROM passwords WHERE id = ?", (password_id,))
     con.commit()
     con.close()
+
+
+def save_password(user_id, key, file_name):
+    con = sqlite3.connect(DATABASE_PATH)
+    cur = con.cursor()
+    cur.execute("INSERT INTO passwords (member_id, file_name, password, memo, created_at) VALUES (?, ?, ?, ?, ?)", (user_id, file_name, key, '', datetime.now()))
+    con.commit()
+    con.close()
+
+
+def change_password_memo(password_id, memo):
+    con = sqlite3.connect(DATABASE_PATH)
+    cur = con.cursor()
+    cur.execute("UPDATE passwords SET memo = ? WHERE id = ?;", (memo, password_id))
+    con.commit()
+    con.close()
+
 
 
 initialize_database()

@@ -54,3 +54,29 @@ button {
 .delete{
     width: 3vw;
 }
+
+.edit-icon {
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 1vw;
+    font-weight: bold;
+    color: #000;
+}
+
+.editable-memo {
+    display: inline-block;
+    /* min-width: 100px; */
+    width: 90%;
+    height: 100%;
+}
+
+.save-icon, .cancel-icon {
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 1vw;
+    color: green;
+}
+
+.cancel-icon {
+    color: red;
+}

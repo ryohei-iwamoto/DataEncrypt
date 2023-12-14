@@ -46,6 +46,9 @@ def upload_file():
         encrypted_data = encode.encrypt_decrypt(file.read(), key.encode())
         file_stream = io.BytesIO(encrypted_data)
         file_stream.seek(0)
+
+        if session["user_id"]:
+            curd.save_password(session["user_id"], key, file.filename)
         # 'download_name' パラメータを設定
         download_name = 'encrypted_' + file.filename
         return send_file(
@@ -146,6 +149,14 @@ def delete_password_route(password_id):
     return jsonify({'status': 'success'})
 
 
+@app.route('/update_memo/<int:passwordId>', methods=['POST'])
+def update_memo(passwordId):
+    data = request.json
+    new_memo = data['memo']
+    curd.change_password_memo(passwordId, new_memo)
+    # ここでデータベースを更新する処理を実装
+    # 例: update_password_memo(passwordId, new_memo)
+    return jsonify(status='success')
 
 
 # if __name__ == '__main__':
