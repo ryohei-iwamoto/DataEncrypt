@@ -1,0 +1,69 @@
+/* ログインフォームのスタイル */
+#login-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    text-align: left;
+    margin-top: 50px;
+}
+
+/* ユーザーネーム入力フィールドのスタイル */
+#username {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+}
+
+/* パスワード入力フィールドのスタイル */
+#password {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+}
+
+#confirmation {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+}
+
+/* ログインボタンのスタイル */
+.button-login {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 112%;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.button-register {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 112%;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.button-login:hover {
+    background-color: #0056b3;
+}
+
+.button-register:hover {
+    background-color: #357500;
+}

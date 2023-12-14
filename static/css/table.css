@@ -59,8 +59,8 @@ button {
     cursor: pointer;
     margin-left: 5px;
     font-size: 1vw;
-    font-weight: bold;
     color: #000;
+    font-weight: bolder;
 }
 
 .editable-memo {
